@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.12 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -13,6 +13,13 @@
     --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --spacing: 0.25rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
+    --radius-3xl: 1.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -149,6 +156,9 @@
   ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
     padding-block: 0;
   }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
   :-moz-ui-invalid {
     box-shadow: none;
   }
@@ -163,11 +173,17 @@
   }
 }
 @layer utilities {
+  .m-auto {
+    margin: auto;
+  }
   .mx-auto {
     margin-inline: auto;
   }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
+  }
+  .mt-\[50px\] {
+    margin-top: 50px;
   }
   .flex {
     display: flex;
@@ -175,8 +191,20 @@
   .table {
     display: table;
   }
+  .w-\[9\] {
+    width: 9;
+  }
   .w-\[70\%\] {
     width: 70%;
+  }
+  .w-\[90\] {
+    width: 90;
+  }
+  .w-\[98\%\] {
+    width: 98%;
+  }
+  .w-\[98\] {
+    width: 98;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -184,8 +212,14 @@
   .resize {
     resize: both;
   }
+  .justify-between {
+    justify-content: space-between;
+  }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
   }
   .rounded-\[8px\] {
     border-radius: 8px;
@@ -194,8 +228,14 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-\[\#0126DE\] {
+    border-color: #0126DE;
+  }
   .border-gray-300 {
     border-color: var(--color-gray-300);
+  }
+  .bg-\[\#F5EDE7\] {
+    background-color: #F5EDE7;
   }
   .bg-red-300 {
     background-color: var(--color-red-300);
@@ -203,11 +243,65 @@
   .p-\[10px\] {
     padding: 10px;
   }
+  .p-\[12px\] {
+    padding: 12px;
+  }
+  .p-\[15px\] {
+    padding: 15px;
+  }
+  .p-\[30\] {
+    padding: 30;
+  }
+  .pt-\[7px\] {
+    padding-top: 7px;
+  }
+  .pt-\[12px\] {
+    padding-top: 12px;
+  }
+  .pr-\[12px\] {
+    padding-right: 12px;
+  }
+  .pr-\[15px\] {
+    padding-right: 15px;
+  }
+  .pr-\[30px\] {
+    padding-right: 30px;
+  }
+  .pb-\[7px\] {
+    padding-bottom: 7px;
+  }
+  .pb-\[12px\] {
+    padding-bottom: 12px;
+  }
+  .pl-\[12px\] {
+    padding-left: 12px;
+  }
+  .pl-\[15px\] {
+    padding-left: 15px;
+  }
+  .pl-\[30px\] {
+    padding-left: 30px;
+  }
   .text-center {
     text-align: center;
   }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
   .text-\[10px\] {
     font-size: 10px;
+  }
+  .text-\[\#0126DE\] {
+    color: #0126DE;
   }
   .underline {
     text-decoration-line: underline;
@@ -258,19 +352,9 @@
       background-color: var(--color-blue-300);
     }
   }
-  .sm\:bg-red-300 {
-    @media (width >= 526px) {
-      background-color: var(--color-red-300);
-    }
-  }
   .sm\:text-\[25px\] {
     @media (width >= 526px) {
       font-size: 25px;
-    }
-  }
-  .md\:bg-red-300 {
-    @media (width >= 756px) {
-      background-color: var(--color-red-300);
     }
   }
   .md\:text-\[5px\] {
@@ -286,11 +370,6 @@
   .lg\:bg-green-300 {
     @media (width >= 1024px) {
       background-color: var(--color-green-300);
-    }
-  }
-  .lg\:bg-red-300 {
-    @media (width >= 1024px) {
-      background-color: var(--color-red-300);
     }
   }
   .lg\:text-\[4em\] {
